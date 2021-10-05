@@ -1,6 +1,10 @@
 // must use inquirer
 const inquirer = require(inquirer);
+// use fs to write file
+const fs = require("fs");
 // should use jest for unit tests
+
+
 
 // Need to accept user input
 // Email address will open default email program and populate the "To" field
