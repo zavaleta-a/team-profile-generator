@@ -1,4 +1,5 @@
 // must use inquirer
+const inquirer = require(inquirer);
 // should use jest for unit tests
 
 // first class = employee parent class
