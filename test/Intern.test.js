@@ -13,7 +13,7 @@ it("creates school name", () => {
 it("can get school name through getSchool()", () => {
   const testSchool = "UTSA";
   const newIntern = new Intern("foobar", 1, "mail@email.com", testSchool);
-  expect(newInter.getSchool()).toEqual(testSchool);
+  expect(newIntern.getSchool()).toEqual(testSchool);
   console.log("School retrieved!");
 });
 it("retunrs Intern using getRole()", () => {
