@@ -76,25 +76,80 @@ const promptUser = () => {
           });
         });
     });
-}
-
-
+};
 
 // function to add members
 function addHtml(member) {
-    return new Promise (function(resolve, reject) {
-        const name = member.getName();
-        const id = member.getId();
-        const email = member.getEmail();
-        const role = memeber.getRole();
-        let data = "";
-        if (role)
-    })
+  return new Promise(function (resolve, reject) {
+    const name = member.getName();
+    const id = member.getId();
+    const email = member.getEmail();
+    const role = memeber.getRole();
+    let data = "";
+    if (role === "Engineer") {
+      const GitHub = member.getGithub();
+    } else if (role === "Intern") {
+      const school = member.getSchool();
+    } else {
+      const officePhoneNumber = memeber.getOfficeNumber();
+    }
+    console.log("Member added!");
+    fs.appendFile("./output/team.hml", data, function (err) {
+      if (err) {
+        return reject(err);
+      }
+      return resolve();
+    });
+  });
+}
+function createHtml() {
+  const html = `<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+          />
+          <title>Team Profile</title>
+        </head>
+        <body>
+          <nav class="navbar navbar-dark bg-dark mb-5">
+            <div class="navbar-brand mb-0 h1 w-100 text-center">Team</div>
+          </nav>
+      
+          <div class="container">
+            <div class="row">`;
+  fs.writeFile("./output/team.html", html, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+}
+
+function finishHtml() {
+  const html = `</div>
+    </div>
+    </body>
+    </html>`;
+
+  fs.appendFile("./output/team.html", html, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  console.log("HTML completed");
 }
 
 // create function to initialize app
 const init = () => {
   promptUser();
+  createHtml();
+  addHtml();
 };
 
 // function to call app init
