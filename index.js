@@ -6,6 +6,34 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const employees [];
+
+// create array of questions for user input
+const promptUser = () => {
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Please enter team member's name",
+        },
+        {
+            type: "checkbox",
+            name: "role",
+            message: "Please select team member's role",
+            choices: ["Employee", "Engineer", "Intern", "Manager"],
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Please enter team member's ID number",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Please enter team member's email address",
+        },
+    ])
+}
 
 
 
